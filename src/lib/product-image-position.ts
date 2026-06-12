@@ -2,6 +2,7 @@ export interface ProductImageFrame {
   objectPosition: string;
   fit?: "cover" | "contain";
   scale?: number;
+  translateY?: string;
   transformOrigin?: string;
 }
 
@@ -21,16 +22,18 @@ const PRODUCT_IMAGE_FRAMES: Record<string, ProductImageFrame> = {
   "black-vest": { objectPosition: "center top" },
   "classic-tee": { objectPosition: "center top" },
   "stripe-polo": { objectPosition: "center top" },
-  // Wider (~19:20) — cover the frame, remove excess headroom, keep the bottom visible.
+  // Wider (~19:20) — cover the frame with a light downward nudge.
   "varsity-bomber": {
-    objectPosition: "center bottom",
-    scale: 1.18,
-    transformOrigin: "center bottom",
+    objectPosition: "center center",
+    scale: 1.1,
+    translateY: "2%",
+    transformOrigin: "center center",
   },
   "denim-jacket": {
-    objectPosition: "center bottom",
-    scale: 1.16,
-    transformOrigin: "center bottom",
+    objectPosition: "center center",
+    scale: 1.08,
+    translateY: "2%",
+    transformOrigin: "center center",
   },
 };
 
@@ -51,8 +54,12 @@ export function productImageStyle(
     objectPosition: frame.objectPosition,
   };
 
-  if (frame.scale && frame.scale !== 1) {
-    style.transform = `scale(${frame.scale})`;
+  const transforms = [];
+  if (frame.translateY) transforms.push(`translateY(${frame.translateY})`);
+  if (frame.scale && frame.scale !== 1) transforms.push(`scale(${frame.scale})`);
+
+  if (transforms.length > 0) {
+    style.transform = transforms.join(" ");
     style.transformOrigin = frame.transformOrigin ?? frame.objectPosition;
   }
 
