@@ -13,16 +13,25 @@ type ImageStyle = {
 
 /**
  * Per-product hero framing for 4:5 display boxes.
- * Full-length shots anchor to the top edge; waist-up shots use contain + bottom align.
+ * Full-length shots anchor to the top edge; waist-up shots use a modest
+ * bottom-anchored zoom so the frame stays filled without cutting off heads.
  */
 const PRODUCT_IMAGE_FRAMES: Record<string, ProductImageFrame> = {
   // Portrait (~2:3) — anchor to the top so head clears the frame edge.
   "black-vest": { objectPosition: "center top" },
   "classic-tee": { objectPosition: "center top" },
   "stripe-polo": { objectPosition: "center top" },
-  // Wider (~19:20) — show the full photo, bottom-aligned for leg room below.
-  "varsity-bomber": { fit: "contain", objectPosition: "center bottom" },
-  "denim-jacket": { fit: "contain", objectPosition: "center bottom" },
+  // Wider (~19:20) — cover the frame, remove excess headroom, keep the bottom visible.
+  "varsity-bomber": {
+    objectPosition: "center bottom",
+    scale: 1.18,
+    transformOrigin: "center bottom",
+  },
+  "denim-jacket": {
+    objectPosition: "center bottom",
+    scale: 1.16,
+    transformOrigin: "center bottom",
+  },
 };
 
 export function productImageFrame(slug: string): ProductImageFrame | undefined {
