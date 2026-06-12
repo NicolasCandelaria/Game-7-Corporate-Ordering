@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { X } from "lucide-react";
+import { useEffect } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ctaLink, navLinks } from "@/data/nav";
 import Button from "@/components/ui/Button";
@@ -15,11 +16,23 @@ export default function MobileMenu({
 }) {
   const reduced = useReducedMotion();
 
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
+
   return (
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-50 flex flex-col bg-g7-black md:hidden"
+          id="mobile-menu"
+          className="fixed inset-0 z-[100] flex min-h-[100dvh] flex-col overflow-y-auto bg-g7-black text-g7-offwhite md:hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -28,7 +41,7 @@ export default function MobileMenu({
           aria-modal="true"
           aria-label="Menu"
         >
-          <div className="flex h-16 items-center justify-between border-b border-g7-line px-5">
+          <div className="flex min-h-16 items-center justify-between border-b border-g7-line px-5 pt-[env(safe-area-inset-top)]">
             <span className="g7-mono text-xs text-g7-offwhite/60">Menu</span>
             <button
               type="button"
@@ -40,7 +53,10 @@ export default function MobileMenu({
             </button>
           </div>
 
-          <nav aria-label="Mobile" className="flex flex-1 flex-col justify-center gap-2 px-5">
+          <nav
+            aria-label="Mobile"
+            className="flex flex-1 flex-col justify-center gap-1 px-5 py-10 pb-[calc(2.5rem+env(safe-area-inset-bottom))]"
+          >
             {navLinks.map((link, i) => (
               <motion.div
                 key={link.href}
@@ -51,7 +67,7 @@ export default function MobileMenu({
                 <Link
                   href={link.href}
                   onClick={onClose}
-                  className="g7-display block py-3 text-4xl text-g7-offwhite transition-colors hover:text-g7-yellow"
+                  className="g7-display block py-2 text-[clamp(2.5rem,12vw,4rem)] leading-[0.9] text-g7-offwhite transition-colors hover:text-g7-yellow"
                 >
                   {link.label}
                 </Link>
