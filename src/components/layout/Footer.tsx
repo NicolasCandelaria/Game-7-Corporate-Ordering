@@ -11,11 +11,12 @@ export default function Footer() {
           <div>
             <p className="g7-mono text-xs text-g7-yellow">Corporate Program</p>
             <h2 className="g7-display mt-5 max-w-3xl text-[clamp(2.5rem,8vw,7rem)] text-g7-offwhite">
-              Win Or Go Home
+              When Everything Is{" "}
+              <span className="text-g7-yellow">On The Line</span>
             </h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-g7-offwhite/70">
               Premium GAME 7 apparel, customized and co-branded for organizations
-              that show up when everything is on the line.
+              built for the moments that matter most.
             </p>
           </div>
 
