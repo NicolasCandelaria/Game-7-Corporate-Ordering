@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/types";
 import { categoryLabel } from "@/data/categories";
-import { productImageFrame, productImageStyle } from "@/lib/product-image-position";
+import { productImageClass, productImageFrame, productImageStyle } from "@/lib/product-image-position";
 import Tag from "@/components/ui/Tag";
 
 /**
@@ -19,6 +19,7 @@ export default function ProductCard({
   const secondImage = product.images.gallery[0];
   const imageFrame = productImageFrame(product.slug);
   const imageStyle = productImageStyle(imageFrame);
+  const imageClass = productImageClass(imageFrame);
   const hoverZoom = imageFrame?.scale ? "" : "group-hover:scale-[1.03]";
 
   return (
@@ -33,7 +34,7 @@ export default function ProductCard({
           fill
           priority={priority}
           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className={`object-cover transition-all duration-300 ${hoverZoom} group-hover:opacity-0`}
+          className={`${imageClass} transition-all duration-300 ${hoverZoom} group-hover:opacity-0`}
           style={imageStyle}
         />
         {secondImage && (
@@ -43,7 +44,7 @@ export default function ProductCard({
             aria-hidden
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className={`object-cover opacity-0 transition-all duration-300 ${hoverZoom} group-hover:opacity-100`}
+            className={`${imageClass} opacity-0 transition-all duration-300 ${hoverZoom} group-hover:opacity-100`}
             style={imageStyle}
           />
         )}

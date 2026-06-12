@@ -1,5 +1,6 @@
 export interface ProductImageFrame {
   objectPosition: string;
+  fit?: "cover" | "contain";
   scale?: number;
   transformOrigin?: string;
 }
@@ -12,28 +13,24 @@ type ImageStyle = {
 
 /**
  * Per-product hero framing for 4:5 display boxes.
- * Full-length shots anchor to the top edge; waist-up shots zoom in from the bottom.
+ * Full-length shots anchor to the top edge; waist-up shots use contain + bottom align.
  */
 const PRODUCT_IMAGE_FRAMES: Record<string, ProductImageFrame> = {
-  // Portrait (~2:3) — anchor to top so head clears the frame edge.
+  // Portrait (~2:3) — anchor to the top so head clears the frame edge.
   "black-vest": { objectPosition: "center top" },
   "classic-tee": { objectPosition: "center top" },
   "stripe-polo": { objectPosition: "center top" },
-  // Wider (~19:20) — full height is visible at 4:5, so zoom from the bottom.
-  "varsity-bomber": {
-    objectPosition: "center bottom",
-    scale: 1.48,
-    transformOrigin: "center bottom",
-  },
-  "denim-jacket": {
-    objectPosition: "center bottom",
-    scale: 1.48,
-    transformOrigin: "center bottom",
-  },
+  // Wider (~19:20) — show the full photo, bottom-aligned for leg room below.
+  "varsity-bomber": { fit: "contain", objectPosition: "center bottom" },
+  "denim-jacket": { fit: "contain", objectPosition: "center bottom" },
 };
 
 export function productImageFrame(slug: string): ProductImageFrame | undefined {
   return PRODUCT_IMAGE_FRAMES[slug];
+}
+
+export function productImageClass(frame?: ProductImageFrame): string {
+  return frame?.fit === "contain" ? "object-contain" : "object-cover";
 }
 
 export function productImageStyle(

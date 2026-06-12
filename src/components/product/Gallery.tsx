@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import type { Product } from "@/lib/types";
-import { productImageFrame, productImageStyle } from "@/lib/product-image-position";
+import { productImageClass, productImageFrame, productImageStyle } from "@/lib/product-image-position";
 import CobrandToggle, { type GalleryMode } from "@/components/product/CobrandToggle";
 
 /**
@@ -20,6 +20,7 @@ export default function Gallery({ product }: { product: Product }) {
   const current = activeSet[Math.min(index, Math.max(activeSet.length - 1, 0))];
   const heroFrame = index === 0 ? productImageFrame(product.slug) : undefined;
   const heroStyle = productImageStyle(heroFrame);
+  const heroClass = productImageClass(heroFrame);
 
   function switchMode(next: GalleryMode) {
     setMode(next);
@@ -53,7 +54,7 @@ export default function Gallery({ product }: { product: Product }) {
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+              className={heroClass}
               style={heroStyle}
             />
           </div>
@@ -82,7 +83,7 @@ export default function Gallery({ product }: { product: Product }) {
                     alt=""
                     fill
                     sizes="80px"
-                    className="object-cover"
+                    className={i === 0 ? heroClass : "object-cover"}
                     style={i === 0 ? heroStyle : undefined}
                   />
                 </button>
