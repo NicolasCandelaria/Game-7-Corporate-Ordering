@@ -26,13 +26,15 @@ export default function Footer() {
 
         <div className="grid gap-10 py-10 md:grid-cols-3 md:py-12">
           <div className="flex flex-col gap-6">
-            <Image
-              src="/brand/logo-horizontal.png"
-              alt="GAME 7"
-              width={240}
-              height={43}
-              className="h-7 w-auto"
-            />
+            <Link href="/" className="inline-flex w-fit" aria-label="GAME 7 home">
+              <Image
+                src="/brand/logo-horizontal.png"
+                alt="GAME 7"
+                width={615}
+                height={96}
+                className="h-7 w-auto object-contain"
+              />
+            </Link>
             <p className="max-w-xs text-sm leading-relaxed text-g7-offwhite/55">
               The two greatest words in sports, brought into the corporate world
               through premium apparel and deep customization.
