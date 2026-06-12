@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GAME 7 Corporate Program — Website
 
-## Getting Started
+Premium marketing/showcase site for the GAME 7 corporate customization program,
+distributed by Billboard Agency International. Not a store: no pricing, no cart,
+no checkout — all commercial conversation routes to the inquiry form.
 
-First, run the development server:
+## Stack
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS v4 (GAME 7 design tokens in `src/app/globals.css`)
+- Framer Motion (scroll reveals, micro-interactions)
+- Local brand fonts served from `public/fonts/`: Pilat Wide, Neue Haas Grotesk
+  Display Pro, and Suisse Intl Mono for web-legible labels/specs.
+- lucide-react icons
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # http://localhost:3000
+npm run build        # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy to Vercel
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Push this repo to GitHub/GitLab/Bitbucket.
+2. Import the repo at [vercel.com/new](https://vercel.com/new) — defaults work
+   (framework auto-detected as Next.js).
+3. Add any environment variables for the form provider (below) and deploy.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Wiring the inquiry form
 
-## Learn More
+Submissions POST JSON to `src/app/api/inquiry/route.ts`. The route validates and
+currently logs + returns success. One clearly marked **PROVIDER INTEGRATION
+POINT** comment block in that file shows the swap for either:
 
-To learn more about Next.js, take a look at the following resources:
+- **Resend (email):** `npm i resend`, set `RESEND_API_KEY`, uncomment the Resend
+  snippet.
+- **Formspree / webhook:** set `INQUIRY_WEBHOOK_URL` and uncomment the fetch
+  snippet.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Spreadsheet export (future)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If submissions should land in a spreadsheet, point the webhook variant at a
+Zapier/Make scenario that appends rows to Google Sheets (or write to the Sheets
+API directly from the route). Not built in the one-shot by design.
 
-## Deploy on Vercel
+## Future quote-cart ("inquiry list")
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The seams exist; the cart does not:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/lib/inquiry.ts` → `addToInquiry(slug)` is the single entry point used by
+  every "Request this item" action. Replace its body with a store write (e.g.
+  Zustand) to persist items.
+- `InquiryForm` already models selected items as `{ slug, name }[]`
+  (`ItemSelector`), so a persistent list drops in without restructuring.
+
+## Content and assets
+
+- **Products:** `src/data/products.ts` (typed by `src/lib/types.ts`). Isolated
+  data layer — a CMS can replace it later. `baseGarmentRef` is internal-only and
+  never rendered.
+- **Placeholders:** all product/editorial/partner images are generated labeled
+  SVG tiles. Regenerate with `node scripts/generate-placeholders.mjs`. Replace
+  with real photography at the same paths (update extensions in
+  `src/data/products.ts`), then remove `images.dangerouslyAllowSVG` from
+  `next.config.ts`.
+- **Brand marks:** placeholder SVGs in `public/brand/` — swap with official
+  Horizontal Primary, Primary (stacked), and Icon Mark files. Single color only.
+- **Fonts:** supplied brand fonts live in `fonts/` and are served from
+  `public/fonts/` via `@font-face` in `src/app/globals.css`. The web mono uses
+  Suisse Intl Mono for readability.

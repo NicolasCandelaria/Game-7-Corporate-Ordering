@@ -1,26 +1,150 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Pilat Wide";
+  src: url("/fonts/PILATWIDE-BLACK.OTF") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("/fonts/NHaasGroteskDSPro-55Rg.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("/fonts/NHaasGroteskDSPro-65Md.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("/fonts/NHaasGroteskDSPro-75Bd.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl Mono";
+  src: url("/fonts/SuisseIntlMono-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------------ */
+/* GAME 7 design tokens                                                */
+/* ------------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --g7-black: #000000; /* primary background, workhorse */
+  --g7-offwhite: #eaeaea; /* primary text on dark, workhorse */
+  --g7-yellow: #ffef00; /* Canary Yellow — signature accent */
+  --g7-cobalt: #0359f0; /* Cobalt Charge — secondary accent */
+  --g7-near-black: #0a0a0a; /* card surfaces, subtle elevation */
+  --g7-line: #2a2a2a; /* hairline borders, dividers */
+  --font-archivo: "Pilat Wide";
+  --font-inter: "Neue Haas Grotesk Display Pro";
+  --font-space-mono: "Suisse Intl Mono";
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-g7-black: var(--g7-black);
+  --color-g7-offwhite: var(--g7-offwhite);
+  --color-g7-yellow: var(--g7-yellow);
+  --color-g7-cobalt: var(--g7-cobalt);
+  --color-g7-near-black: var(--g7-near-black);
+  --color-g7-line: var(--g7-line);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /*
+   * GAME 7 brand guideline typography:
+   *   display -> Pilat Wide / Pilat Extended Black
+   *   body    -> Neue Haas Grotesk Display Pro 55/65
+   *   mono    -> Suisse Intl Mono (brand package alternate for web legibility)
+   */
+  --font-display: var(--font-archivo);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-space-mono);
+
+  --radius-g7: 2px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--g7-black);
+  color: var(--g7-offwhite);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--g7-yellow);
+  color: var(--g7-black);
+}
+
+/* ------------------------------------------------------------------ */
+/* Type utilities                                                      */
+/* ------------------------------------------------------------------ */
+
+/* Oversized display headlines: wide, heavy, tight, uppercase */
+.g7-display {
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  /* Prevent ascender/descender clipping on tight mobile layouts */
+  padding-block: 0.04em;
+}
+
+@media (min-width: 768px) {
+  .g7-display {
+    line-height: 0.85;
+    padding-block: 0;
+  }
+}
+
+/* Mono eyebrow / label / spec readout */
+.g7-mono {
+  font-family: var(--font-space-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ------------------------------------------------------------------ */
+/* Focus visibility                                                    */
+/* ------------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--g7-yellow);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Marquee ticker                                                      */
+/* ------------------------------------------------------------------ */
+@keyframes g7-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.g7-marquee-track {
+  animation: g7-marquee 40s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g7-marquee-track {
+    animation: none;
+  }
 }
