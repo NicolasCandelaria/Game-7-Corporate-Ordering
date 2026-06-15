@@ -39,7 +39,7 @@ export const products: Product[] = [
     category: "outerwear",
     tagline: "Built to move. Made to lead.",
     description:
-      "A performance track jacket cut for motion, finished with secure zip pockets and a tonal back-neck mark. Boardroom to warm-up without breaking stride.",
+      "An easy-to-style track jacket built from a stretch knit made with 88% recycled material and finished with a woven overlay. Secure zip pockets keep the essentials close. Wear it to warm-ups, throw it over jeans, or layer it with the rest of your Game 7 fits — on the field or off, it’s ready for whatever the day brings.",
     colors: [
       { name: "Cobalt", hex: "#0F6BD7", pantone: "PMS 2387 C" },
       { name: "Tonal Logo Cobalt", hex: "#0B4FA8", pantone: "PMS 2388 C" },
@@ -60,7 +60,7 @@ export const products: Product[] = [
     category: "outerwear",
     tagline: "The daily standard.",
     description:
-      "A clean everyday layer with snap-button detail that holds its shape from first meeting to last call. Premium hand, zero fuss.",
+      "Go anywhere, do anything. This multi-tasking full-zip layer pairs as easily with chinos for the commute as it does with denim for a night out. Cut in a classic fit with a clean collar, two-way zipper, front pockets, an elastic hem, and snap-closure cuffs — everyday cover that never slows you down.",
     colors: [{ name: "Black", hex: "#000000" }],
     images: images("everyday-jacket", 1),
     customization: {
@@ -78,7 +78,7 @@ export const products: Product[] = [
     category: "outerwear",
     tagline: "Ready for every rep.",
     description:
-      "An insulated hybrid built for transition — warm enough for the commute, light enough for the work. Wear it hard.",
+      "Built for cold-weather training. Moisture-wicking stretch fabric with a water-resistant coating keeps the elements out while warm insulation keeps you in the game. A clean mock neck rounds out a jacket loaded with performance — ready when the temperature drops.",
     colors: [{ name: "Black", hex: "#000000" }],
     images: images("training-jacket"),
     customization: DEFAULT_CUSTOMIZATION,
@@ -91,7 +91,7 @@ export const products: Product[] = [
     category: "outerwear",
     tagline: "Core warmth. Full range.",
     description:
-      "A hybrid vest that keeps your core in the game and your arms free. Back-neck mark executed as a rubber badge — quiet, technical, permanent.",
+      "The one layer you won’t want to take off. Engineered to adapt to the temperature — keeping you warm when it’s cool and venting heat as things pick up. A water-repellent finish, durable stretch-woven fabric, and a soft fleece lining keep you covered, while secure zip hand pockets keep the essentials safe.",
     colors: [{ name: "Black", hex: "#000000" }],
     images: images("black-vest", 1),
     customization: {
@@ -109,7 +109,7 @@ export const products: Product[] = [
     category: "outerwear",
     tagline: "Earned, not issued.",
     description:
-      "A knit bomber with championship posture — structured collar, ribbed trim, updated GAME 7 mark. The piece people ask about.",
+      "A varsity classic, reimagined. A super-chunky cotton knit with a smooth satin lining, finished with front snap closures, welt pockets, and embroidered artwork throughout — including a bold statement across the back. Heavyweight comfort with championship energy.",
     colors: [
       { name: "Green", hex: "#1E4D2B" }, // Pantone picked; refine from mockups
       { name: "Blue", hex: "#1B3A6B" }, // Pantone picked; refine from mockups
@@ -130,7 +130,7 @@ export const products: Product[] = [
     category: "outerwear",
     tagline: "Legacy on your shoulders.",
     description:
-      "Collegiate weight, modern cut, updated GAME 7 mark. Built for the people who set the standard, not the ones who follow it.",
+      "The team jacket, elevated. Paneled in a recycled poly-and-wool melton with grained leather sleeves, finished with a rib-knit stand collar, hem, and cuffs. A two-way zip, chest embroidery, welt pockets, dropped shoulders, and a full satin lining complete the look, topped with a statement across the back. Old-school spirit, premium build.",
     colors: [{ name: "Black", hex: "#000000" }],
     images: images("letterman-jacket", 1),
     customization: {
@@ -148,7 +148,7 @@ export const products: Product[] = [
     category: "outerwear",
     tagline: "Loud where it counts.",
     description:
-      "A button-up varsity layer in full red. One statement piece per wardrobe — this is it.",
+      "Retro-inspired and ready to stand out. Cut from soft-touch corduroy in an oversized, slouchy fit, with a collared neckline, balloon sleeves, and contrast striped ribbed trim throughout. Chest embroidery and varsity patches at the sleeve bring the throwback energy home.",
     colors: [{ name: "Red", hex: "#B3251E" }],
     images: images("red-button-up-jacket", 1),
     customization: DEFAULT_CUSTOMIZATION,
@@ -161,7 +161,7 @@ export const products: Product[] = [
     category: "outerwear",
     tagline: "Workwear, promoted.",
     description:
-      "Indigo denim with a back placement built to carry a mark. A workhorse layer that gets better the more it's worn.",
+      "A sporty take on a wardrobe staple. Built in an oversized, slouchy fit with a collared neckline, contrast striped ribbed trim, and varsity detailing down the sleeve. Chest embroidery adds the finishing touch — a denim jacket with game-day attitude.",
     colors: [{ name: "Denim / Indigo", hex: "#2E4057" }],
     images: images("denim-jacket", 1),
     customization: {
@@ -182,7 +182,7 @@ export const products: Product[] = [
     category: "hoodies-layers",
     tagline: "The mid-layer that means business.",
     description:
-      "Athletic heather with a red accent hit. The quarter zip that holds up under travel, training, and Tuesday.",
+      "Your new go-to layer. A soft, easy-wearing fabric meets a cool quarter-zip silhouette and a stand-up collar built for game day and every day. Throw it on, zip up, and go.",
     colors: [
       { name: "Athletic Heather Grey", hex: "#9DA2A6" },
       { name: "Red Accent", hex: "#C8102E" }, // red Pantone TBD
@@ -198,7 +198,7 @@ export const products: Product[] = [
     category: "hoodies-layers",
     tagline: "Contrast, controlled.",
     description:
-      "Heather colour-blocking with sleeve and back-neck marks. Engineered contrast that reads premium across a full team.",
+      "A quarter-zip with attitude. Bold colour-blocking, a clean stand-up collar, and a soft, easy-wearing fabric come together in a silhouette made to stand out. Layer it for warm-ups or wear it solo — either way, it brings the energy.",
     colors: [{ name: "Heather Grey Colour-Block", hex: "#8E9398" }],
     images: images("colour-block-quarter-zip"),
     customization: {
@@ -216,7 +216,7 @@ export const products: Product[] = [
     category: "hoodies-layers",
     tagline: "Recovery-grade comfort.",
     description:
-      "An oversized hoodie in pale grey heather with serious loft. Built for the hours between the work.",
+      "Rest, relax, and reset. Made from brushed French terry and treated with a bio wash for an extra-soft handfeel and a lived-in look, this oversized hoodie is built for the hours between games. Pure comfort, head to toe.",
     colors: [{ name: "Pale Grey Heather", hex: "#C9CBCD" }], // greys picked; refine
     images: images("oversized-hoodie"),
     customization: DEFAULT_CUSTOMIZATION,
@@ -229,7 +229,7 @@ export const products: Product[] = [
     category: "hoodies-layers",
     tagline: "Steady under pressure.",
     description:
-      "A relaxed pullover in deep navy with a clean face for decoration. The hoodie your team actually keeps.",
+      "A reimagined classic. This relaxed pullover puts softness first, with a kangaroo pocket and a naturally breathable cotton-blend fleece that feels easy against the skin and delivers lightweight warmth. Comfort you’ll want to live in.",
     colors: [{ name: "Navy", hex: "#1B2A4A" }], // closest Pantone match
     images: images("relaxed-fit-hoodie"),
     customization: DEFAULT_CUSTOMIZATION,
@@ -246,7 +246,7 @@ export const products: Product[] = [
     category: "tops",
     tagline: "Client-facing. Performance-built.",
     description:
-      "A technical long-sleeve polo that holds a collar and a pace. Frost grey, white, and navy variants for full-roster programs.",
+      "Our softest polo yet, now in a long sleeve. A performance-minded collared shirt built from 4-way stretch fabric that wicks moisture and offers light protection from the elements. From the clubhouse to the course, it moves the way you do.",
     colors: [
       { name: "Frost Grey Heather", hex: "#B7BCC0" },
       { name: "White", hex: "#F4F4F4" }, // grey logo used on white
@@ -267,7 +267,7 @@ export const products: Product[] = [
     category: "tops",
     tagline: "Detail wins games.",
     description:
-      "Cotton pique with contrast tipping at collar and cuff. Tipping colors configurable to your brand system.",
+      "A casual must-have with a sporty edge. Breathable cotton piqué meets contrast tipping that ties the whole look together, with a flat-knit collar, three-button placket, and short sleeves in an easy regular fit. Clean, classic, and unmistakably Game 7.",
     colors: [{ name: "Contrast Tipping Options", hex: "#1A1A1A" }],
     images: images("stripe-polo"),
     customization: DEFAULT_CUSTOMIZATION,
@@ -280,7 +280,7 @@ export const products: Product[] = [
     category: "tops",
     tagline: "The everyday training layer.",
     description:
-      "A tech long-sleeve in navy heather that wicks, stretches, and recovers. Daily-wear durability with a premium hand.",
+      "The softest piece in the lineup, now your everyday go-to. Cut from a smooth performance knit that wicks moisture and dries quickly, this long-sleeve tee delivers next-level comfort for training days and rest days alike.",
     colors: [{ name: "Navy Heather", hex: "#2C3A55" }],
     images: images("long-sleeve-tee"),
     customization: DEFAULT_CUSTOMIZATION,
@@ -293,7 +293,7 @@ export const products: Product[] = [
     category: "tops",
     tagline: "The foundation piece.",
     description:
-      "A premium classic tee in misty blue — soft enough to keep, sharp enough to wear out. The baseline every program is built on.",
+      "An everyday essential, done right. Ultra-soft pima cotton with plenty of stretch and flatlock seams for clean, all-day comfort. Built to move with you from training to travel — the tee you’ll reach for again and again.",
     colors: [
       { name: "Misty Blue (Darker)", hex: "#7FA0AC", pantone: "PMS 2220 C" },
       { name: "Misty Blue (Lighter)", hex: "#9FB9BD", pantone: "PMS 5503 C" },
@@ -314,7 +314,7 @@ export const products: Product[] = [
     category: "headwear",
     tagline: "Crown standard.",
     description:
-      "A structured snapback in black/navy with GAME 7 logo on the inner taping. Alternate spec: black hat, blue label, blue inner seam tape.",
+      "Top off the fit. A structured snapback with logo text across the front and brim, finished with crisp embroidery and an adjustable snap closure for the perfect fit. Game-day ready, every day.",
     colors: [
       { name: "Black / Navy", hex: "#10141C" },
       { name: "Black / Blue Tape (Alt)", hex: "#0A0A0A" },
