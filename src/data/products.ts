@@ -44,7 +44,10 @@ export const products: Product[] = [
       { name: "Cobalt", hex: "#0F6BD7", pantone: "PMS 2387 C" },
       { name: "Tonal Logo Cobalt", hex: "#0B4FA8", pantone: "PMS 2388 C" },
     ],
-    images: images("track-jacket"),
+    images: {
+      ...images("track-jacket"),
+      cobranded: ["/products/track-jacket/cobranded-1.jpg"],
+    },
     customization: {
       placements: ["Back neck (tonal)", "Left chest"],
       methods: ["Embroidery", "Heat transfer", "Woven label"],
