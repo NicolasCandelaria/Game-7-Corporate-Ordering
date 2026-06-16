@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Product } from "@/lib/types";
 import { categoryLabel } from "@/data/categories";
 import { productImageClass, productImageFrame, productImageStyle } from "@/lib/product-image-position";
+import ImageZoomLightbox from "@/components/product/ImageZoomLightbox";
 import Tag from "@/components/ui/Tag";
 
 /**
@@ -23,11 +24,13 @@ export default function ProductCard({
   const hoverZoom = imageFrame?.scale ? "" : "group-hover:scale-[1.03]";
 
   return (
-    <Link
-      href={`/collection/${product.slug}`}
-      className="group block rounded-[2px] border border-transparent transition-colors duration-200 hover:border-g7-yellow"
-    >
+    <div className="group block rounded-[2px] border border-transparent transition-colors duration-200 hover:border-g7-yellow">
       <div className="relative aspect-[4/5] overflow-hidden bg-g7-near-black">
+        <Link
+          href={`/collection/${product.slug}`}
+          className="absolute inset-0 z-[1]"
+          aria-label={`View ${product.name}`}
+        />
         <Image
           src={product.images.hero}
           alt={`${product.name} — GAME 7 corporate apparel`}
@@ -48,13 +51,20 @@ export default function ProductCard({
             style={imageStyle}
           />
         )}
+        <ImageZoomLightbox
+          src={product.images.hero}
+          alt={`${product.name} — GAME 7 corporate apparel`}
+        />
       </div>
-      <div className="flex flex-col gap-2 px-1 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+      <Link
+        href={`/collection/${product.slug}`}
+        className="flex flex-col gap-2 px-1 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-3"
+      >
         <h3 className="g7-display min-w-0 text-sm leading-snug text-g7-offwhite sm:text-base">
           {product.name}
         </h3>
         <Tag className="w-fit shrink-0">{categoryLabel(product.category)}</Tag>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }

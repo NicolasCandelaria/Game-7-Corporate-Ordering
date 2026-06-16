@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import type { Product } from "@/lib/types";
 import { productImageClass, productImageFrame, productImageStyle } from "@/lib/product-image-position";
+import ImageZoomLightbox from "@/components/product/ImageZoomLightbox";
 import CobrandToggle, { type GalleryMode } from "@/components/product/CobrandToggle";
 
 /**
@@ -56,6 +57,10 @@ export default function Gallery({ product }: { product: Product }) {
               sizes="(max-width: 1024px) 100vw, 50vw"
               className={heroClass}
               style={heroStyle}
+            />
+            <ImageZoomLightbox
+              src={current}
+              alt={`${product.name}${mode === "cobrand" ? " — co-branded example" : ""} — GAME 7 corporate apparel`}
             />
           </div>
 
