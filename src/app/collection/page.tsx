@@ -6,7 +6,7 @@ import CollectionView from "@/components/product/CollectionView";
 export const metadata: Metadata = {
   title: "Collection",
   description:
-    "The GAME 7 corporate collection — premium outerwear, hoodies, tops, and headwear, customizable and co-brandable for your organization.",
+    "The GAME 7 corporate collection — performance, training, and lifestyle pieces, plus headwear and accessories, customizable for your organization.",
 };
 
 export default function CollectionPage() {

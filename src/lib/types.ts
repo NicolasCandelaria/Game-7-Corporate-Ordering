@@ -1,4 +1,4 @@
-export type Category = "outerwear" | "hoodies-layers" | "tops" | "headwear";
+export type Category = "tops" | "layers" | "outerwear" | "headwear" | "accessories";
 
 export interface ColorOption {
   name: string;

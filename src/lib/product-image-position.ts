@@ -13,28 +13,34 @@ type ImageStyle = {
 };
 
 /**
- * Per-product hero framing for 4:5 display boxes.
- * Full-length shots anchor to the top edge; waist-up shots use a modest
- * bottom-anchored zoom so the frame stays filled without cutting off heads.
+ * 4:5 card framing for the 2026 core lineup.
+ * Tall on-figure shots anchor toward the head. Wide product flats stay fully visible.
  */
 const PRODUCT_IMAGE_FRAMES: Record<string, ProductImageFrame> = {
-  // Portrait (~2:3) — anchor to the top so head clears the frame edge.
-  "black-vest": { objectPosition: "center top" },
-  "classic-tee": { objectPosition: "center top" },
-  "stripe-polo": { objectPosition: "center top" },
-  // Wider (~19:20) — cover the frame with a light downward nudge.
-  "varsity-bomber": {
-    objectPosition: "center center",
-    scale: 1.1,
-    translateY: "2%",
-    transformOrigin: "center center",
-  },
-  "denim-jacket": {
-    objectPosition: "center center",
-    scale: 1.08,
-    translateY: "2%",
-    transformOrigin: "center center",
-  },
+  "classic-tee": { objectPosition: "center 18%" },
+  "womens-classic-tee": { objectPosition: "center 16%" },
+  "long-sleeve-tee": { objectPosition: "center 16%" },
+  "womens-long-sleeve-tee": { objectPosition: "center 16%" },
+  "long-sleeve-polo": { objectPosition: "center 14%" },
+  "stripe-polo": { objectPosition: "center 12%" },
+  "oversized-hoodie": { objectPosition: "center 20%" },
+  "quarter-zip": { objectPosition: "center 18%" },
+  "relaxed-fit-hoodie": { objectPosition: "center 18%" },
+  "track-jacket": { objectPosition: "center 16%" },
+  "training-jacket": { objectPosition: "center 16%" },
+  "everyday-jacket": { objectPosition: "center 14%" },
+  "off-duty-snapback": { objectPosition: "center 30%" },
+  "classic-cap": { objectPosition: "center 28%" },
+  "off-duty-dad-hat": { objectPosition: "center 30%" },
+  "flip-straw-tumbler": { objectPosition: "center center" },
+  "essentials-backpack": { objectPosition: "center center" },
+  "leather-duffle": { objectPosition: "center center" },
+  "gym-towel": { fit: "contain", objectPosition: "center center" },
+  "rally-towel": { fit: "contain", objectPosition: "center center" },
+  "shaker-bottle": { fit: "contain", objectPosition: "center center" },
+  "clear-hip-bag": { fit: "contain", objectPosition: "center center" },
+  "everything-leather-bag": { fit: "contain", objectPosition: "center center" },
+  "waterproof-weekender": { fit: "contain", objectPosition: "center center" },
 };
 
 export function productImageFrame(slug: string): ProductImageFrame | undefined {

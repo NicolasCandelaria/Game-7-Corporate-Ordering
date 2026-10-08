@@ -1,10 +1,11 @@
 import type { CategoryDef } from "@/lib/types";
 
 export const categories: CategoryDef[] = [
-  { id: "outerwear", label: "Outerwear" },
-  { id: "hoodies-layers", label: "Hoodies & Layers" },
   { id: "tops", label: "Tops" },
+  { id: "layers", label: "Layers" },
+  { id: "outerwear", label: "Outerwear" },
   { id: "headwear", label: "Headwear" },
+  { id: "accessories", label: "Accessories" },
 ];
 
 export function categoryLabel(id: string): string {

@@ -19,7 +19,7 @@ export default function Gallery({ product }: { product: Product }) {
   const cobrandSet = product.images.cobranded;
   const activeSet = mode === "base" ? baseSet : cobrandSet;
   const current = activeSet[Math.min(index, Math.max(activeSet.length - 1, 0))];
-  const heroFrame = index === 0 ? productImageFrame(product.slug) : undefined;
+  const heroFrame = productImageFrame(product.slug);
   const heroStyle = productImageStyle(heroFrame);
   const heroClass = productImageClass(heroFrame);
 
@@ -88,8 +88,8 @@ export default function Gallery({ product }: { product: Product }) {
                     alt=""
                     fill
                     sizes="80px"
-                    className={i === 0 ? heroClass : "object-cover"}
-                    style={i === 0 ? heroStyle : undefined}
+                    className={heroClass}
+                    style={heroStyle}
                   />
                 </button>
               ))}
