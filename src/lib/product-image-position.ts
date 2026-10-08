@@ -32,14 +32,19 @@ const PRODUCT_IMAGE_FRAMES: Record<string, ProductImageFrame> = {
   "off-duty-snapback": { objectPosition: "center 30%" },
   "classic-cap": { objectPosition: "center 28%" },
   "off-duty-dad-hat": { objectPosition: "center 30%" },
-  "flip-straw-tumbler": { objectPosition: "center center" },
+  "flip-straw-tumbler": { fit: "contain", objectPosition: "center center" },
   "essentials-backpack": { objectPosition: "center center" },
   "leather-duffle": { objectPosition: "center center" },
   "gym-towel": { fit: "contain", objectPosition: "center center" },
   "rally-towel": { fit: "contain", objectPosition: "center center" },
   "shaker-bottle": { fit: "contain", objectPosition: "center center" },
   "clear-hip-bag": { fit: "contain", objectPosition: "center center" },
-  "everything-leather-bag": { fit: "contain", objectPosition: "center center" },
+  "everything-leather-bag": {
+    fit: "contain",
+    objectPosition: "center center",
+    scale: 2.15,
+    transformOrigin: "center center",
+  },
   "waterproof-weekender": { fit: "contain", objectPosition: "center center" },
 };
 

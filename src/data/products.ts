@@ -124,9 +124,9 @@ export const products: Product[] = [
       "An oversized hoodie in white, black, and heathered grey. The back is left clean, with a kangaroo pocket and ribbing that reads clearly across a full team.",
     colors: [WHITE, BLACK, HEATHER],
     images: {
-      hero: "/products/oversized-hoodie/hero.jpg",
+      hero: "/products/oversized-hoodie/gallery-1.jpg",
       gallery: [
-        "/products/oversized-hoodie/gallery-1.jpg",
+        "/products/oversized-hoodie/hero.jpg",
         "/products/oversized-hoodie/gallery-2.jpg",
         "/products/oversized-hoodie/gallery-3.png",
       ],
@@ -209,7 +209,15 @@ export const products: Product[] = [
     description:
       "A training jacket in white, black, and ice grey, with a printed back logo — black on white and ice grey, white on black. Made to move from warm-up to cool-down without a second layer.",
     colors: [WHITE, BLACK, ICE],
-    images: jpgSet("training-jacket", 3),
+    images: {
+      hero: "/products/training-jacket/gallery-2.jpg",
+      gallery: [
+        "/products/training-jacket/hero.jpg",
+        "/products/training-jacket/gallery-1.jpg",
+        "/products/training-jacket/gallery-3.jpg",
+      ],
+      cobranded: [],
+    },
     customization: BACK_LOGO,
     featured: true,
   },
