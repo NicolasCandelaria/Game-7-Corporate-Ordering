@@ -67,11 +67,11 @@ export const products: Product[] = [
       "A long-sleeve tee in white, black, and heathered grey. The back stays undecorated, keeping the silhouette clean from warm-up through the rest of the day.",
     colors: [WHITE, BLACK, HEATHER],
     images: {
-      hero: "/products/long-sleeve-tee/hero.png",
+      hero: "/products/long-sleeve-tee/gallery-3.jpg",
       gallery: [
+        "/products/long-sleeve-tee/hero.png",
         "/products/long-sleeve-tee/gallery-1.jpg",
         "/products/long-sleeve-tee/gallery-2.jpg",
-        "/products/long-sleeve-tee/gallery-3.jpg",
       ],
       cobranded: [],
     },
