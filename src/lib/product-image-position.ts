@@ -25,7 +25,7 @@ const PRODUCT_IMAGE_FRAMES: Record<string, ProductImageFrame> = {
   "stripe-polo": { objectPosition: "center 12%" },
   "oversized-hoodie": { objectPosition: "center 20%" },
   "quarter-zip": { objectPosition: "center 18%" },
-  "relaxed-fit-hoodie": { objectPosition: "center 18%" },
+  "relaxed-fit-hoodie": { objectPosition: "center center" },
   "track-jacket": { objectPosition: "center 16%" },
   "training-jacket": { objectPosition: "center 16%" },
   "everyday-jacket": { objectPosition: "center 14%" },

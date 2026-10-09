@@ -145,9 +145,9 @@ export const products: Product[] = [
       "A relaxed hoodie in white, black, and heathered grey. Cleaner through the body than the oversized cut, with an undecorated back and a mark that stays quiet.",
     colors: [WHITE, BLACK, HEATHER],
     images: {
-      hero: "/products/relaxed-fit-hoodie/hero.png",
+      hero: "/products/relaxed-fit-hoodie/gallery-1.jpg",
       gallery: [
-        "/products/relaxed-fit-hoodie/gallery-1.jpg",
+        "/products/relaxed-fit-hoodie/hero.png",
         "/products/relaxed-fit-hoodie/gallery-2.jpg",
         "/products/relaxed-fit-hoodie/gallery-3.jpg",
       ],
