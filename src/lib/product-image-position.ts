@@ -35,7 +35,7 @@ const PRODUCT_IMAGE_FRAMES: Record<string, ProductImageFrame> = {
   "flip-straw-tumbler": { fit: "contain", objectPosition: "center center", scale: 0.92, transformOrigin: "center center" },
   "essentials-backpack": { fit: "contain", objectPosition: "center center", scale: 0.96, transformOrigin: "center center" },
   "leather-duffle": { fit: "contain", objectPosition: "center center", scale: 0.94, transformOrigin: "center center" },
-  "gym-towel": { fit: "contain", objectPosition: "center center", scale: 1.55, transformOrigin: "68% center" },
+  "gym-towel": { fit: "contain", objectPosition: "center center", scale: 1, transformOrigin: "center center" },
   "rally-towel": { fit: "contain", objectPosition: "center center", scale: 1.48, transformOrigin: "center center" },
   "shaker-bottle": { fit: "contain", objectPosition: "center center", scale: 1.12, transformOrigin: "center center" },
   "clear-hip-bag": { fit: "contain", objectPosition: "center center", scale: 1.58, transformOrigin: "center center" },

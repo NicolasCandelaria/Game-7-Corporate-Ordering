@@ -293,18 +293,6 @@ export const products: Product[] = [
   },
   {
     id: "g7-016",
-    slug: "gym-towel",
-    name: "Quick Dry Gym Towel with Dry Bag",
-    category: "accessories",
-    tagline: "Three up. Packed down.",
-    description:
-      "A three-pack of quick-dry gym towels with a dry bag. Built for the session and the bag that carries it.",
-    colors: [BLACK],
-    images: jpgSet("gym-towel", 0),
-    customization: { placements: ["Towel", "Dry bag"], methods: ["Print", "Embroidery"] },
-  },
-  {
-    id: "g7-017",
     slug: "rally-towel",
     name: "Rally Towel",
     category: "accessories",
@@ -314,6 +302,18 @@ export const products: Product[] = [
     colors: [WHITE],
     images: jpgSet("rally-towel", 0),
     customization: { placements: ["Face"], methods: ["Print"] },
+  },
+  {
+    id: "g7-017",
+    slug: "gym-towel",
+    name: "Quick Dry Gym Towel with Dry Bag",
+    category: "accessories",
+    tagline: "Three up. Packed down.",
+    description:
+      "A three-pack of quick-dry gym towels with a dry bag. Built for the session and the bag that carries it.",
+    colors: [BLACK],
+    images: jpgSet("gym-towel", 0),
+    customization: { placements: ["Towel", "Dry bag"], methods: ["Print", "Embroidery"] },
   },
   {
     id: "g7-018",
