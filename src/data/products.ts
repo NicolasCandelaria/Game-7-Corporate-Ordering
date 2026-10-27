@@ -233,6 +233,7 @@ export const products: Product[] = [
     images: {
       hero: "/products/everyday-jacket/hero.png",
       gallery: [
+        "/products/everyday-jacket/gallery-4.png",
         "/products/everyday-jacket/gallery-1.jpg",
         "/products/everyday-jacket/gallery-2.jpg",
         "/products/everyday-jacket/gallery-3.jpg",
