@@ -23,7 +23,7 @@ const PRODUCT_IMAGE_FRAMES: Record<string, ProductImageFrame> = {
   "womens-long-sleeve-tee": { objectPosition: "center top" },
   "long-sleeve-polo": { objectPosition: "center top" },
   "stripe-polo": { objectPosition: "center 11%" },
-  "oversized-hoodie": { objectPosition: "center center" },
+  "oversized-hoodie": { objectPosition: "center top" },
   "quarter-zip": { objectPosition: "center center" },
   "relaxed-fit-hoodie": { objectPosition: "center center" },
   "track-jacket": { objectPosition: "center top" },

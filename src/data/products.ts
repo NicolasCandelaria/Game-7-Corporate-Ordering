@@ -128,7 +128,7 @@ export const products: Product[] = [
       gallery: [
         "/products/oversized-hoodie/hero.jpg",
         "/products/oversized-hoodie/gallery-2.jpg",
-        "/products/oversized-hoodie/gallery-3.png",
+        "/products/oversized-hoodie/gallery-3.jpg",
       ],
       cobranded: [],
     },
@@ -169,7 +169,7 @@ export const products: Product[] = [
       gallery: [
         "/products/quarter-zip/gallery-1.jpg",
         "/products/quarter-zip/gallery-2.jpg",
-        "/products/quarter-zip/gallery-3.png",
+        "/products/quarter-zip/gallery-3.jpg",
       ],
       cobranded: [],
     },
@@ -231,9 +231,9 @@ export const products: Product[] = [
       "An everyday jacket in white, black, and ice grey. A printed logo sits on the back — black on white and ice grey, white on black — for a layer that works past the session.",
     colors: [WHITE, BLACK, ICE],
     images: {
-      hero: "/products/everyday-jacket/hero.png",
+      hero: "/products/everyday-jacket/hero.jpg",
       gallery: [
-        "/products/everyday-jacket/gallery-4.png",
+        "/products/everyday-jacket/gallery-4.jpg",
         "/products/everyday-jacket/gallery-1.jpg",
         "/products/everyday-jacket/gallery-2.jpg",
         "/products/everyday-jacket/gallery-3.jpg",
