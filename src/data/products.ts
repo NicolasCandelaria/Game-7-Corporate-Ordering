@@ -41,11 +41,11 @@ export const products: Product[] = [
       "A clean classic tee in white, black, and heathered grey. The back is left open — no decoration — so a left-chest mark stays the focus. The piece every program starts with.",
     colors: [WHITE, BLACK, HEATHER],
     images: {
-      hero: "/products/classic-tee/hero.jpg",
+      hero: "/products/classic-tee/gallery-2.jpg",
       gallery: [
-        "/products/classic-tee/gallery-1.jpg",
-        "/products/classic-tee/gallery-2.jpg",
         "/products/classic-tee/gallery-4.jpg",
+        "/products/classic-tee/hero.jpg",
+        "/products/classic-tee/gallery-1.jpg",
         "/products/classic-tee/gallery-3.jpg",
       ],
       cobranded: [],
