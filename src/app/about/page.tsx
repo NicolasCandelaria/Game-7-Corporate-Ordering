@@ -45,7 +45,7 @@ export default function AboutPage() {
             <span className="text-g7-yellow">On The Line</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-g7-offwhite/80 md:mt-8 md:text-lg">
-            GAME 7 is a performance lifestyle brand underscoring the journey to
+            GAME 7 is a premium performance brand underscoring the journey to
             success. The corporate program brings that same pressure-tested identity
             to premium apparel built for teams, partners, and organizations.
           </p>

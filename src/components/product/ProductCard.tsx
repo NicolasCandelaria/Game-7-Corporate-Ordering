@@ -22,6 +22,7 @@ export default function ProductCard({
   const imageStyle = productImageStyle(imageFrame);
   const imageClass = productImageClass(imageFrame);
   const hoverZoom = imageFrame?.scale ? "" : "group-hover:scale-[1.03]";
+  const heroHover = secondImage ? "group-hover:opacity-0" : "";
 
   return (
     <div className="group block rounded-[2px] border border-transparent transition-colors duration-200 hover:border-g7-yellow">
@@ -37,7 +38,7 @@ export default function ProductCard({
           fill
           priority={priority}
           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className={`${imageClass} transition-all duration-300 ${hoverZoom} group-hover:opacity-0`}
+          className={`${imageClass} transition-all duration-300 ${hoverZoom} ${heroHover}`}
           style={imageStyle}
         />
         {secondImage && (
