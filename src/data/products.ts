@@ -40,7 +40,16 @@ export const products: Product[] = [
     description:
       "A clean classic tee in white, black, and heathered grey. The back is left open — no decoration — so a left-chest mark stays the focus. The piece every program starts with.",
     colors: [WHITE, BLACK, HEATHER],
-    images: jpgSet("classic-tee", 3),
+    images: {
+      hero: "/products/classic-tee/hero.jpg",
+      gallery: [
+        "/products/classic-tee/gallery-1.jpg",
+        "/products/classic-tee/gallery-2.jpg",
+        "/products/classic-tee/gallery-4.jpg",
+        "/products/classic-tee/gallery-3.jpg",
+      ],
+      cobranded: [],
+    },
     customization: { placements: ["Left chest"], methods: ["Print", "Embroidery"] },
     featured: true,
   },
@@ -111,7 +120,15 @@ export const products: Product[] = [
     description:
       "A short-sleeve polo with stripe detailing, offered in white, black, and heathered grey. A tone-on-tone printed logo sits at the back of the neck so the stripe stays the detail.",
     colors: [WHITE, BLACK, HEATHER],
-    images: jpgSet("stripe-polo", 3),
+    images: {
+      hero: "/products/stripe-polo/hero.jpg",
+      gallery: [
+        "/products/stripe-polo/gallery-3.jpg",
+        "/products/stripe-polo/gallery-1.jpg",
+        "/products/stripe-polo/gallery-2.jpg",
+      ],
+      cobranded: [],
+    },
     customization: NECK,
   },
   {
@@ -126,9 +143,9 @@ export const products: Product[] = [
     images: {
       hero: "/products/oversized-hoodie/gallery-1.jpg",
       gallery: [
+        "/products/oversized-hoodie/gallery-3.jpg",
         "/products/oversized-hoodie/hero.jpg",
         "/products/oversized-hoodie/gallery-2.jpg",
-        "/products/oversized-hoodie/gallery-3.jpg",
       ],
       cobranded: [],
     },
@@ -167,9 +184,9 @@ export const products: Product[] = [
     images: {
       hero: "/products/quarter-zip/hero.jpg",
       gallery: [
+        "/products/quarter-zip/gallery-3.jpg",
         "/products/quarter-zip/gallery-1.jpg",
         "/products/quarter-zip/gallery-2.jpg",
-        "/products/quarter-zip/gallery-3.jpg",
       ],
       cobranded: [],
     },
@@ -212,9 +229,9 @@ export const products: Product[] = [
     images: {
       hero: "/products/training-jacket/gallery-2.jpg",
       gallery: [
+        "/products/training-jacket/gallery-3.jpg",
         "/products/training-jacket/hero.jpg",
         "/products/training-jacket/gallery-1.jpg",
-        "/products/training-jacket/gallery-3.jpg",
       ],
       cobranded: [],
     },
