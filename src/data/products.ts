@@ -20,13 +20,18 @@ const BLACK = { name: "Black", hex: "#111111" };
 const HEATHER = { name: "Heathered Grey", hex: "#B7B7B7" };
 const ICE = { name: "Ice Grey", hex: "#D5D8DC" };
 
-function jpgSet(slug: string, count: number, heroExt = ".jpg") {
+function jpgSet(
+  slug: string,
+  count: number,
+  heroExt = ".jpg",
+  cobranded: string[] = [],
+) {
   return {
     hero: `/products/${slug}/hero${heroExt}`,
     gallery: Array.from({ length: count }, (_, i) => {
       return `/products/${slug}/gallery-${i + 1}.jpg`;
     }),
-    cobranded: [] as string[],
+    cobranded,
   };
 }
 
@@ -48,7 +53,7 @@ export const products: Product[] = [
         "/products/classic-tee/gallery-1.jpg",
         "/products/classic-tee/gallery-3.jpg",
       ],
-      cobranded: [],
+      cobranded: ["/products/classic-tee/cobranded-1.jpg"],
     },
     customization: { placements: ["Left chest"], methods: ["Print", "Embroidery"] },
     featured: true,
@@ -82,7 +87,7 @@ export const products: Product[] = [
         "/products/long-sleeve-tee/gallery-1.jpg",
         "/products/long-sleeve-tee/gallery-2.jpg",
       ],
-      cobranded: [],
+      cobranded: ["/products/long-sleeve-tee/cobranded-1.jpg"],
     },
     customization: CORE,
   },
@@ -147,7 +152,7 @@ export const products: Product[] = [
         "/products/oversized-hoodie/hero.jpg",
         "/products/oversized-hoodie/gallery-2.jpg",
       ],
-      cobranded: [],
+      cobranded: ["/products/oversized-hoodie/cobranded-1.jpg"],
     },
     customization: CORE,
     featured: true,
@@ -168,7 +173,7 @@ export const products: Product[] = [
         "/products/relaxed-fit-hoodie/gallery-2.jpg",
         "/products/relaxed-fit-hoodie/gallery-3.jpg",
       ],
-      cobranded: [],
+      cobranded: ["/products/relaxed-fit-hoodie/cobranded-1.jpg"],
     },
     customization: CORE,
   },
@@ -233,7 +238,7 @@ export const products: Product[] = [
         "/products/training-jacket/hero.jpg",
         "/products/training-jacket/gallery-1.jpg",
       ],
-      cobranded: [],
+      cobranded: ["/products/training-jacket/cobranded-1.jpg"],
     },
     customization: BACK_LOGO,
     featured: true,
@@ -288,7 +293,9 @@ export const products: Product[] = [
       { name: "Navy", hex: "#1B2A4A" },
       { name: "Red", hex: "#B3251E" },
     ],
-    images: jpgSet("classic-cap", 8),
+    images: jpgSet("classic-cap", 8, ".jpg", [
+      "/products/classic-cap/cobranded-1.jpg",
+    ]),
     customization: {
       placements: ["Bill", "Underside seam tape"],
       methods: ["Embroidery", "Print"],
@@ -303,7 +310,9 @@ export const products: Product[] = [
     description:
       "An unstructured dad hat in black and white, with an embroidered logo on the right side and printed seam tape on the underside.",
     colors: [BLACK, WHITE],
-    images: jpgSet("off-duty-dad-hat", 5),
+    images: jpgSet("off-duty-dad-hat", 5, ".jpg", [
+      "/products/off-duty-dad-hat/cobranded-1.jpg",
+    ]),
     customization: {
       placements: ["Right side", "Underside seam tape"],
       methods: ["Embroidery", "Print"],
@@ -330,7 +339,9 @@ export const products: Product[] = [
     description:
       "A three-pack of quick-dry gym towels with a dry bag. Built for the session and the bag that carries it.",
     colors: [BLACK],
-    images: jpgSet("gym-towel", 0),
+    images: jpgSet("gym-towel", 0, ".jpg", [
+      "/products/gym-towel/cobranded-1.jpg",
+    ]),
     customization: { placements: ["Towel", "Dry bag"], methods: ["Print", "Embroidery"] },
   },
   {
@@ -366,7 +377,9 @@ export const products: Product[] = [
     description:
       "A clear stadium hip bag in black and white. Small enough for the gate, marked enough to belong to the program.",
     colors: [BLACK, WHITE],
-    images: jpgSet("clear-hip-bag", 1),
+    images: jpgSet("clear-hip-bag", 1, ".jpg", [
+      "/products/clear-hip-bag/cobranded-1.jpg",
+    ]),
     customization: { placements: ["Front"], methods: ["Print"] },
   },
   {
@@ -414,7 +427,9 @@ export const products: Product[] = [
     description:
       "A black waterproof weekender for the road. Closed against the weather, marked so it is obvious whose it is.",
     colors: [BLACK],
-    images: jpgSet("waterproof-weekender", 0),
+    images: jpgSet("waterproof-weekender", 0, ".jpg", [
+      "/products/waterproof-weekender/cobranded-1.jpg",
+    ]),
     customization: { placements: ["Front"], methods: ["Print"] },
   },
 ];
