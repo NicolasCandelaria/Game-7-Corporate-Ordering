@@ -47,7 +47,10 @@ export default function Gallery({ product }: { product: Product }) {
         </div>
       ) : (
         <>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-g7-near-black">
+          <div
+            className="relative aspect-[4/5] overflow-hidden rounded-[2px] bg-g7-near-black"
+            style={heroFrame?.background ? { backgroundColor: heroFrame.background } : undefined}
+          >
             <Image
               key={current}
               src={current}
@@ -82,6 +85,7 @@ export default function Gallery({ product }: { product: Product }) {
                       ? "border-g7-yellow"
                       : "border-g7-line hover:border-g7-offwhite/40"
                   }`}
+                  style={heroFrame?.background ? { backgroundColor: heroFrame.background } : undefined}
                 >
                   <Image
                     src={src}

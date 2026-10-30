@@ -4,6 +4,8 @@ export interface ProductImageFrame {
   scale?: number;
   translateY?: string;
   transformOrigin?: string;
+  /** Fills the card behind object-contain shots so studio gray meets the frame. */
+  background?: string;
 }
 
 type ImageStyle = {
@@ -14,7 +16,7 @@ type ImageStyle = {
 
 /**
  * 4:5 card framing for the 2026 core lineup.
- * Tall on-figure shots anchor toward the head. Wide product flats stay fully visible.
+ * Tall on-figure shots anchor toward the head. Hats stay fully visible inside the frame.
  */
 const PRODUCT_IMAGE_FRAMES: Record<string, ProductImageFrame> = {
   "classic-tee": { objectPosition: "center 11%" },
@@ -32,15 +34,8 @@ const PRODUCT_IMAGE_FRAMES: Record<string, ProductImageFrame> = {
   "off-duty-snapback": { fit: "contain", objectPosition: "center center", scale: 1.22, transformOrigin: "center center" },
   "classic-cap": { fit: "contain", objectPosition: "center center", scale: 1.18, transformOrigin: "center center" },
   "off-duty-dad-hat": { fit: "contain", objectPosition: "center center", scale: 1.32, transformOrigin: "center center" },
-  "flip-straw-tumbler": { fit: "contain", objectPosition: "center center", scale: 0.92, transformOrigin: "center center" },
-  "essentials-backpack": { fit: "contain", objectPosition: "center center", scale: 0.96, transformOrigin: "center center" },
-  "leather-duffle": { fit: "contain", objectPosition: "center center", scale: 0.94, transformOrigin: "center center" },
-  "gym-towel": { fit: "contain", objectPosition: "center center", scale: 1, transformOrigin: "center center" },
-  "rally-towel": { fit: "contain", objectPosition: "center center", scale: 1.48, transformOrigin: "center center" },
-  "shaker-bottle": { fit: "contain", objectPosition: "center center", scale: 1.12, transformOrigin: "center center" },
-  "clear-hip-bag": { fit: "contain", objectPosition: "center center", scale: 1.58, transformOrigin: "center center" },
-  "everything-leather-bag": { fit: "contain", objectPosition: "center center", scale: 1.9, transformOrigin: "center center" },
-  "waterproof-weekender": { fit: "contain", objectPosition: "center center", scale: 1.16, transformOrigin: "center center" },
+  // Handle and base sit on the frame edge, so cover would clip them.
+  "flip-straw-tumbler": { fit: "contain", objectPosition: "center center", background: "#eeeeee" },
 };
 
 export function productImageFrame(slug: string): ProductImageFrame | undefined {

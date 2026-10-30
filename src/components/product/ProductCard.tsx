@@ -21,12 +21,15 @@ export default function ProductCard({
   const imageFrame = productImageFrame(product.slug);
   const imageStyle = productImageStyle(imageFrame);
   const imageClass = productImageClass(imageFrame);
-  const hoverZoom = imageFrame?.scale ? "" : "group-hover:scale-[1.03]";
+  const hoverZoom = imageFrame?.fit === "contain" || imageFrame?.scale ? "" : "group-hover:scale-[1.03]";
   const heroHover = secondImage ? "group-hover:opacity-0" : "";
 
   return (
     <div className="group block rounded-[2px] border border-transparent transition-colors duration-200 hover:border-g7-yellow">
-      <div className="relative aspect-[4/5] overflow-hidden bg-g7-near-black">
+      <div
+        className="relative aspect-[4/5] overflow-hidden bg-g7-near-black"
+        style={imageFrame?.background ? { backgroundColor: imageFrame.background } : undefined}
+      >
         <Link
           href={`/collection/${product.slug}`}
           className="absolute inset-0 z-[1]"
