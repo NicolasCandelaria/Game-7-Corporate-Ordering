@@ -66,7 +66,7 @@ export default async function ProductPage({ params }: Props) {
             {product.description}
           </p>
 
-          <ColorSwatches colors={product.colors} />
+          <ColorSwatches product={product} />
 
           <CustomizationSpec spec={product.customization} />
 

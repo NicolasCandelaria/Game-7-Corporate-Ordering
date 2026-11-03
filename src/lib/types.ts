@@ -4,9 +4,9 @@ export interface ColorOption {
   name: string;
   hex: string; // best-known approximation; refine from mockups
   pantone?: string; // when specified in approvals
-  /** Replaces the GAME 7 gallery when this colorway is selected. */
+  /** Shown large when this colorway is selected in GAME 7 mode. First image is the one opened. */
   images?: string[];
-  /** Replaces the co-branded gallery when this colorway is selected. */
+  /** Shown large when this colorway is selected in co-branded mode. First image is the one opened. */
   cobrandedImages?: string[];
 }
 

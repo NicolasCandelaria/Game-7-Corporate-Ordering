@@ -1,31 +1,43 @@
 "use client";
 
 import Image from "next/image";
-import type { ColorOption, Product } from "@/lib/types";
+import type { Product } from "@/lib/types";
 import { productImageClass, productImageFrame, productImageStyle } from "@/lib/product-image-position";
+import { colorImages, gallerySet } from "@/lib/product-gallery";
 import ImageZoomLightbox from "@/components/product/ImageZoomLightbox";
-import CobrandToggle from "@/components/product/CobrandToggle";
+import CobrandToggle, { type GalleryMode } from "@/components/product/CobrandToggle";
 import { useProductView } from "@/components/product/ProductView";
 
 /**
  * PDP image gallery: main image + thumbnail rail, with a toggle between
- * the GAME 7 set and the co-branded example set.
+ * the GAME 7 set and the co-branded example set. Every mockup for the
+ * current mode stays in the rail; a colorway only chooses which one is large.
  */
-function colorImages(color: ColorOption | undefined, mode: "base" | "cobrand") {
-  if (!color) return undefined;
-  const images = mode === "cobrand" ? color.cobrandedImages : color.images;
-  return images?.length ? images : undefined;
-}
-
 export default function Gallery({ product }: { product: Product }) {
-  const { mode, index, colorName, switchMode, setIndex } = useProductView();
-  const selected = product.colors.find((color) => color.name === colorName);
+  const { mode, index, colorName, switchMode, setIndex, selectColor } = useProductView();
 
-  const baseSet = [product.images.hero, ...product.images.gallery];
-  const cobrandSet = product.images.cobranded;
-  const activeSet =
-    colorImages(selected, mode) ?? (mode === "base" ? baseSet : cobrandSet);
+  const activeSet = gallerySet(product, mode);
   const current = activeSet[Math.min(index, Math.max(activeSet.length - 1, 0))];
+
+  function onMode(next: GalleryMode) {
+    const set = gallerySet(product, next);
+    const color = product.colors.find((item) => item.name === colorName);
+    const primary = colorImages(color, next)?.[0];
+    const nextIndex = primary ? Math.max(set.indexOf(primary), 0) : 0;
+    switchMode(next);
+    setIndex(nextIndex);
+  }
+
+  function onThumb(nextIndex: number) {
+    const src = activeSet[nextIndex];
+    const owners = product.colors.filter((color) =>
+      colorImages(color, mode)?.includes(src),
+    );
+    const primaryOwner = owners.find((color) => colorImages(color, mode)?.[0] === src);
+    const currentOwner = owners.find((color) => color.name === colorName);
+    const next = primaryOwner ?? currentOwner ?? (owners.length === 1 ? owners[0] : undefined);
+    selectColor(next?.name ?? null, nextIndex);
+  }
   const heroFrame = productImageFrame(product.slug);
   const heroStyle = productImageStyle(heroFrame);
   const heroClass = productImageClass(heroFrame);
@@ -33,7 +45,7 @@ export default function Gallery({ product }: { product: Product }) {
   return (
     <div>
       <div className="mb-4">
-        <CobrandToggle mode={mode} onChange={switchMode} />
+        <CobrandToggle mode={mode} onChange={onMode} />
       </div>
 
       {activeSet.length === 0 ? (
@@ -79,7 +91,7 @@ export default function Gallery({ product }: { product: Product }) {
                 <button
                   key={src}
                   type="button"
-                  onClick={() => setIndex(i)}
+                  onClick={() => onThumb(i)}
                   aria-label={`View image ${i + 1} of ${activeSet.length}`}
                   aria-current={i === index}
                   className={`relative aspect-[4/5] w-20 shrink-0 overflow-hidden rounded-[2px] border transition-colors duration-200 ${

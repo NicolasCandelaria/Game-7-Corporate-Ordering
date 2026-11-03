@@ -9,7 +9,7 @@ type ProductViewValue = {
   colorName: string | null;
   switchMode: (mode: GalleryMode) => void;
   setIndex: (index: number) => void;
-  selectColor: (name: string) => void;
+  selectColor: (name: string | null, index: number) => void;
 };
 
 const ProductViewContext = createContext<ProductViewValue | null>(null);
@@ -25,12 +25,11 @@ export function ProductViewProvider({ children }: { children: ReactNode }) {
     colorName,
     switchMode(next) {
       setMode(next);
-      setIndex(0);
     },
     setIndex,
-    selectColor(name) {
+    selectColor(name, nextIndex) {
       setColorName(name);
-      setIndex(0);
+      setIndex(nextIndex);
     },
   };
 

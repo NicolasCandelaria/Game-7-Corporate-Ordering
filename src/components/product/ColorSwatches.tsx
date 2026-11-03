@@ -1,11 +1,13 @@
 "use client";
 
-import type { ColorOption } from "@/lib/types";
+import type { Product } from "@/lib/types";
+import { colorImages, gallerySet } from "@/lib/product-gallery";
 import { useProductView } from "@/components/product/ProductView";
 
-/** Swatch row. Colorways with their own photos switch the gallery. */
-export default function ColorSwatches({ colors }: { colors: ColorOption[] }) {
-  const { colorName, selectColor } = useProductView();
+/** Swatch row. Colorways with their own photos open that mockup. */
+export default function ColorSwatches({ product }: { product: Product }) {
+  const { mode, colorName, selectColor } = useProductView();
+  const colors = product.colors;
   const selectable = colors.some(
     (color) => color.images?.length || color.cobrandedImages?.length,
   );
@@ -45,7 +47,12 @@ export default function ColorSwatches({ colors }: { colors: ColorOption[] }) {
                   type="button"
                   title={color.name}
                   aria-pressed={selected}
-                  onClick={() => selectColor(color.name)}
+                  onClick={() => {
+                    const set = gallerySet(product, mode);
+                    const primary = colorImages(color, mode)?.[0];
+                    const nextIndex = primary ? Math.max(set.indexOf(primary), 0) : 0;
+                    selectColor(color.name, nextIndex);
+                  }}
                   className="flex flex-col items-start gap-2 text-left"
                 >
                   {swatch}
