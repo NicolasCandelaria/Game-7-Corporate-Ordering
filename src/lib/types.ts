@@ -4,6 +4,10 @@ export interface ColorOption {
   name: string;
   hex: string; // best-known approximation; refine from mockups
   pantone?: string; // when specified in approvals
+  /** Replaces the GAME 7 gallery when this colorway is selected. */
+  images?: string[];
+  /** Replaces the co-branded gallery when this colorway is selected. */
+  cobrandedImages?: string[];
 }
 
 export interface Customization {

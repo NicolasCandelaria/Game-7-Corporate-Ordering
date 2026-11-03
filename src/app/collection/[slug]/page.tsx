@@ -6,6 +6,7 @@ import Tag from "@/components/ui/Tag";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Gallery from "@/components/product/Gallery";
 import ColorSwatches from "@/components/product/ColorSwatches";
+import { ProductViewProvider } from "@/components/product/ProductView";
 import CustomizationSpec from "@/components/product/CustomizationSpec";
 import RequestItemButton from "@/components/product/RequestItemButton";
 import ProductGrid from "@/components/product/ProductGrid";
@@ -42,6 +43,7 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-24">
+      <ProductViewProvider>
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Sticky gallery column */}
         <div className="lg:sticky lg:top-28 lg:self-start">
@@ -76,6 +78,7 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
       </div>
+      </ProductViewProvider>
 
       {related.length > 0 && (
         <section className="mt-28 border-t border-g7-line pt-16">

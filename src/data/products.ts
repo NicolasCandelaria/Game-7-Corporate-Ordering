@@ -230,15 +230,28 @@ export const products: Product[] = [
     tagline: "Built for the session.",
     description:
       "A training jacket in white, black, and ice grey, with a printed back logo — black on white and ice grey, white on black. Made to move from warm-up to cool-down without a second layer.",
-    colors: [WHITE, BLACK, ICE],
+    colors: [
+      {
+        name: "White",
+        hex: "#F4F4F4",
+        images: [
+          "/products/training-jacket/gallery-2.jpg",
+          "/products/training-jacket/gallery-3.jpg",
+        ],
+        cobrandedImages: ["/products/training-jacket/cobranded-2.png"],
+      },
+      {
+        name: "Black",
+        hex: "#111111",
+        images: ["/products/training-jacket/gallery-1.jpg"],
+        cobrandedImages: ["/products/training-jacket/gallery-1.jpg"],
+      },
+      ICE,
+    ],
     images: {
       hero: "/products/training-jacket/gallery-2.jpg",
-      gallery: [
-        "/products/training-jacket/gallery-3.jpg",
-        "/products/training-jacket/hero.jpg",
-        "/products/training-jacket/gallery-1.jpg",
-      ],
-      cobranded: ["/products/training-jacket/cobranded-1.jpg"],
+      gallery: ["/products/training-jacket/gallery-3.jpg"],
+      cobranded: ["/products/training-jacket/cobranded-1.png"],
     },
     customization: BACK_LOGO,
     featured: true,

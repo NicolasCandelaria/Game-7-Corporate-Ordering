@@ -1,32 +1,34 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import type { Product } from "@/lib/types";
+import type { ColorOption, Product } from "@/lib/types";
 import { productImageClass, productImageFrame, productImageStyle } from "@/lib/product-image-position";
 import ImageZoomLightbox from "@/components/product/ImageZoomLightbox";
-import CobrandToggle, { type GalleryMode } from "@/components/product/CobrandToggle";
+import CobrandToggle from "@/components/product/CobrandToggle";
+import { useProductView } from "@/components/product/ProductView";
 
 /**
  * PDP image gallery: main image + thumbnail rail, with a toggle between
  * the GAME 7 set and the co-branded example set.
  */
+function colorImages(color: ColorOption | undefined, mode: "base" | "cobrand") {
+  if (!color) return undefined;
+  const images = mode === "cobrand" ? color.cobrandedImages : color.images;
+  return images?.length ? images : undefined;
+}
+
 export default function Gallery({ product }: { product: Product }) {
-  const [mode, setMode] = useState<GalleryMode>("base");
-  const [index, setIndex] = useState(0);
+  const { mode, index, colorName, switchMode, setIndex } = useProductView();
+  const selected = product.colors.find((color) => color.name === colorName);
 
   const baseSet = [product.images.hero, ...product.images.gallery];
   const cobrandSet = product.images.cobranded;
-  const activeSet = mode === "base" ? baseSet : cobrandSet;
+  const activeSet =
+    colorImages(selected, mode) ?? (mode === "base" ? baseSet : cobrandSet);
   const current = activeSet[Math.min(index, Math.max(activeSet.length - 1, 0))];
   const heroFrame = productImageFrame(product.slug);
   const heroStyle = productImageStyle(heroFrame);
   const heroClass = productImageClass(heroFrame);
-
-  function switchMode(next: GalleryMode) {
-    setMode(next);
-    setIndex(0);
-  }
 
   return (
     <div>
