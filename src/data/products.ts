@@ -246,7 +246,13 @@ export const products: Product[] = [
         images: ["/products/training-jacket/gallery-1.jpg"],
         cobrandedImages: ["/products/training-jacket/gallery-1.jpg"],
       },
-      ICE,
+      {
+        name: "Ice Grey",
+        hex: "#D5D8DC",
+        cobrandedName: "Navy",
+        cobrandedHex: "#111C34",
+        cobrandedImages: ["/products/training-jacket/cobranded-1.png"],
+      },
     ],
     images: {
       hero: "/products/training-jacket/gallery-2.jpg",

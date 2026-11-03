@@ -18,6 +18,10 @@ export default function ColorSwatches({ product }: { product: Product }) {
       <ul className="flex flex-wrap gap-4">
         {colors.map((color) => {
           const selected = colorName === color.name;
+          const displayName =
+            mode === "cobrand" && color.cobrandedName ? color.cobrandedName : color.name;
+          const displayHex =
+            mode === "cobrand" && color.cobrandedHex ? color.cobrandedHex : color.hex;
           const swatch = (
             <span
               className={`block h-10 w-10 rounded-[2px] border transition-colors duration-200 ${
@@ -25,12 +29,12 @@ export default function ColorSwatches({ product }: { product: Product }) {
                   ? "border-g7-yellow"
                   : "border-g7-line group-hover:border-g7-offwhite/60"
               }`}
-              style={{ backgroundColor: color.hex }}
+              style={{ backgroundColor: displayHex }}
             />
           );
           const label = (
             <span className="g7-mono max-w-28 text-[10px] leading-snug text-g7-offwhite/60">
-              {color.name}
+              {displayName}
               {color.pantone && (
                 <>
                   <br />
@@ -45,7 +49,7 @@ export default function ColorSwatches({ product }: { product: Product }) {
               {selectable ? (
                 <button
                   type="button"
-                  title={color.name}
+                  title={displayName}
                   aria-pressed={selected}
                   onClick={() => {
                     const set = gallerySet(product, mode);
@@ -60,7 +64,7 @@ export default function ColorSwatches({ product }: { product: Product }) {
                 </button>
               ) : (
                 <>
-                  <span title={color.name}>{swatch}</span>
+                  <span title={displayName}>{swatch}</span>
                   {label}
                 </>
               )}

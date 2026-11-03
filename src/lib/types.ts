@@ -8,6 +8,9 @@ export interface ColorOption {
   images?: string[];
   /** Shown large when this colorway is selected in co-branded mode. First image is the one opened. */
   cobrandedImages?: string[];
+  /** Label and swatch used in place of name/hex while Co-Branded Example is on. */
+  cobrandedName?: string;
+  cobrandedHex?: string;
 }
 
 export interface Customization {
